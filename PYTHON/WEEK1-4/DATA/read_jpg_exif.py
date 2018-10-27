@@ -1,3 +1,5 @@
+#pip install Pillow
+
 from PIL import Image
 from PIL.ExifTags import TAGS
 def get_exif_data(fname):
