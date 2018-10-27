@@ -21,3 +21,15 @@ if __name__ == '__main__':
     fileName = './yourpicname.jpg'
     exif = get_exif_data(fileName)
     print(exif)
+    
+import piexif
+from PIL import Image
+
+img = Image.open('libaray.jpg')
+exif_dict = piexif.load(img.info['exif'])
+exif_dict
+altitude = exif_dict['0th'][306]
+b'2018:10:27 22:14:36'
+exif_dict['0th'][306] = b'2018:10:27 22:14:36'
+exif_bytes = piexif.dump(exif_dict)
+img.save('_%s' % fname, "jpeg", exif=exif_bytes)
